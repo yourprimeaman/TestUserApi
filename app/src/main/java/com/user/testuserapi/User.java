@@ -6,23 +6,31 @@ import retrofit2.http.Body;
 
 public class User {
 
-    private String user_name;
-    private String user_email;
+    private int userId;
+    private Integer id;
+    private String title;
+    @SerializedName("body")
+    private String text;
 
-
-    public String getUser_name() {
-        return user_name;
+    public User(int userId, String title, String text) {
+        this.userId = userId;
+        this.title = title;
+        this.text = text;
     }
 
-    public void setUser_name(String user_name) {
-        this.user_name = user_name;
+    public int getUserId() {
+        return userId;
     }
 
-    public String getUser_email() {
-        return user_email;
+    public Integer getId() {
+        return id;
     }
 
-    public void setUser_email(String user_email) {
-        this.user_email = user_email;
+    public String getTitle() {
+        return title;
+    }
+
+    public String getText() {
+        return text;
     }
 }

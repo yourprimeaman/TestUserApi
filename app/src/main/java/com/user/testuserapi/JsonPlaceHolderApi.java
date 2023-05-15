@@ -11,22 +11,10 @@ import retrofit2.http.Query;
 
 public interface JsonPlaceHolderApi {
 
-//    @Headers({"email:dealer@gmail.com","password:123456"})
-//    @POST("api/login")
-//    Call<User>createUser(@Body User user);
+    @POST("/posts")
+    Call<User> fakePostApiTest(@Body User user);
 
-//    @POST("api/login")
-//    Call<User>createUser(
-//            @Query("email") String email,
-//            @Query("password") String String
-//    );
-
-    @Headers({"email:dealer@gmail.com","password:123456"})
-    @POST("api/login")
-    Call<User> createUser(
-            @Field("user_name") String user_name,
-            @Field("user_email") String user_email
-    );
-
+    @POST("/api/login?email=dealer@gmail.com&password=123456")
+    Call<LoginUserApi> loginUserApi(@Body LoginUserApi loginUserApi);
 
 }
