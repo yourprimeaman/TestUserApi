@@ -1,9 +1,7 @@
 package com.user.testuserapi;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.widget.TextView;
 
@@ -55,7 +53,29 @@ public class MainActivity extends AppCompatActivity {
 
                 LoginUserApi userResponse = response.body();
 
+                LoginUserApi.User obj = userResponse.getUser();
+                List<LoginUserApi.UserRole> userRole = userResponse.getUserRole();
+
+                obj.getUserType();
+
+
                 String content = "";
+
+                for (LoginUserApi.UserRole uRole : userRole) {
+                    content += "Role Name:  "+uRole.getRoleName() + "\n" +
+                            "-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -\n";
+                    content += "Menu Name:  "+uRole.getMenuName() + "\n" +
+                            "-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -\n";
+                    content += "App Icon:  "+uRole.getAppIcon() + "\n" +
+                            "-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -\n";
+                    content += "Mobile Action:  "+uRole.getMobileAction() + "\n" +
+                            "-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -\n";
+                    content += "Web Action:  "+uRole.getWebAction() + "\n" +
+                            "-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -\n";
+                    textView.append(content);
+                }
+
+
                 content += "Response Code:  " + response.code() + "\n" +
                         "-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -\n";
                 assert userResponse != null;
@@ -63,15 +83,24 @@ public class MainActivity extends AppCompatActivity {
                         "-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -\n";
                 content += "Login Status:  " + userResponse.getMessage() + "\n" +
                         "-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -\n";
+                /*
                 content += "Token:  " + userResponse.getToken() + "\n" +
                         "-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -\n";
-//                content += "User_Name:  " +userResponse.getUserName()+ "\n";
-//                content += "User_type: " + userResponse.getUser_type() + "\n";
-//                content += "User_Role_Id: " + userResponse.getRole_id() + "\n";
-//                content += "Status: " + userResponse.getStatus() + "\n";
-//                content += "Create_By: " + userResponse.getCreate_by() + "\n";
-
+                 */
+                content += "User Name:  " +obj.getUserName()+ "\n" +
+                        "-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -\n";
+                content += "User Email:  " + obj.getUserEmail() + "\n" +
+                        "-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -\n";
+                content += "User Type:  " + obj.getUserType() + "\n" +
+                        "-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -\n";
+                content += "Mobile No:  " + obj.getUserPhone() + "\n" +
+                        "-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -\n";
+                content += "Created At:  " + obj.getCreatedAt() + "\n" +
+                        "-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -\n";
+                content += "Password:  " +obj.getPassword() + "\n" +
+                        "-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -\n";
                 textView.setText(content);
+
             }
 
             @Override
