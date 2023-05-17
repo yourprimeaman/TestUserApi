@@ -11,10 +11,9 @@ import retrofit2.http.Query;
 
 public interface JsonPlaceHolderApi {
 
-    @POST("/posts")
-    Call<User> fakePostApiTest(@Body User user);
-
-    @POST("/api/login?email=dealer@gmail.com&password=123456")
-    Call<LoginUserApi> loginUserApi(@Body LoginUserApi loginUserApi);
+    @FormUrlEncoded
+    @POST("login")
+    Call<LoginUserApi> loginUserApi(@Field("email") String email,
+                                    @Field("password") String password);
 
 }

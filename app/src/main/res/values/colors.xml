@@ -2,4 +2,18 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- Bootstrap color code in android -->
+
+    <color name="Primary">#3B71CA</color>
+    <color name="Secondary">#9FA6B2</color>
+    <color name="Success">#14A44D</color>
+    <color name="Danger">#DC4C64</color>
+    <color name="Warning">#E4A11B</color>
+    <color name="Info">#54B4D3</color>
+    <color name="Light">#FBFBFB</color>
+    <color name="Dark">#332D2D</color>
+
+    <!-- <====================================> -->
+
 </resources>
